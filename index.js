@@ -31,8 +31,6 @@ function verifyToken(req, res, next) {
 
 async function run() {
   try {
-    await client.connect();
-
     const appoinmentCollection = client
       .db('doctorProtal')
       .collection('appointmentOption');
@@ -237,7 +235,6 @@ async function run() {
       const result = await bookingsCollection.find({ paid: true }).toArray();
       res.send(result);
     });
-    console.log('Connect');
   } finally {
   }
 }
